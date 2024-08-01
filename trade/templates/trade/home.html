@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <title>Trade.Agile - Home</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style>
+        body{
+            width: 100vw;
+            height: 100vh;
+            background-color: #9eb9cc;
+            text-align: center;
+            font-family: roboto;
+        }
+        h1{
+            font-size: 36px;
+            background-color: #1e5e8b;
+            color: white;
+        }
+        a{
+            color: white;
+            font-size: 16px;
+        }
+    </style>
+
+
+</head>
+<body>
+
+    <h1>Bem-vindo à Trade.Agile</h1>
+    <br>
+    <a href="{% url 'login' %}">Login</a>
+    <a href="{% url 'cadastro_clientes' %}">Cadastro de Clientes</a>
+    <a href="{% url 'demonstrativo_tabelas' %}">Demonstrativo das Tabelas</a>
+    <a href="{% url 'galeria_produtos' %}">Galeria de Produtos</a>
+    <a href="{% url 'realizar_venda' %}">Realizar Venda</a>
+</body>
+</html>

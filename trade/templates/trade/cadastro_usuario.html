@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="">
+<style>
+        body{
+            width: 100vw;
+            height: 100vh;
+            background-color: #9eb9cc;
+            text-align: center;
+            font-family: roboto;
+            font-size: 16px;
+            color: white;
+        }
+        h1{
+            font-size: 36px;
+            background-color: #1e5e8b;
+            color: white;
+        }
+        a{
+            color: white;
+            font-size: 16px;
+        }
+        button{
+            background-color: #004aad;
+            color: #ffd529;
+            width: 20%;
+            height: 50px;
+            font-size: 20px;
+            border-radius: 5%;
+        }
+        #caixa{
+            background-color: #1e5e8b;
+            margin-right: 25%;
+            margin-left: 25%;
+            height: 240px;
+            text-align: center;
+            border-radius: 9px;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            {% if messages %}
+                setTimeout(function() {
+                    location.reload();
+                }, 4000);
+            {% endif %}
+        };
+    </script>
+</head>
+<body>
+    <div class="containerP">
+        <div id="topo">
+           <h1>Cadastro de Usuário</h1>
+        </div>
+        <div id="caixa">
+            <form method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                    <br>
+                    {{ field.label_tag }} {{ field }}
+                    <br>
+                    {% if field.errors %}
+                        <br>
+                    <div class="contError">
+                    <br>
+                            <div class="errors">
+                                {{ field.errors }}
+                                <br>
+                            </div>
+                    </div>
+                        {% endif %}
+                {% endfor %}
+            <br>
+                <button class="boto" type="submit">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <div class="contMsg">
+                    <h1>{{ message }}</h1>
+                    <h3>Agora o usuário cadastrado pode navegar pelo hud da Trade.Agile a vontadem, basta realizar login.</h3>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</body>
+</html>

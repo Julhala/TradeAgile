@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Galeria de Produtos</title>
+    <link rel="stylesheet" type="text/css"  href="" />
+    <style>
+        body{
+            width: 100vw;
+            height: 100vh;
+            background-color: #9eb9cc;
+            text-align: center;
+            font-family: roboto;
+        }
+        h1{
+            font-size: 36px;
+            background-color: #1e5e8b;
+            color: white;
+        }
+        a{
+            color: white;
+            font-size: 16px;
+        }
+        img{
+            width: 20%;
+            height: 35%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Galeria de Produtos</h1>
+    <img src="https://img.elo7.com.br/product/main/213D32A/caneca-profissao-analista-de-sistemas-caneca-ensinar-e-uma-dadiva.jpg"/>
+    <img src="https://portal-talenti.curriculum.com.br/wp-content/uploads/2016/10/presentes_criativos_6.jpg"/>
+    <img src="https://lembrancinhas-criativas.com.br/wp-content/uploads/2023/09/51uZdPhYXnL._AC_SL1200_-1024x791.jpg"/>
+    <br><br>
+    <img src="https://images.tcdn.com.br/img/img_prod/1184016/agenda_2023_profissional_de_ti_color_1_26280679_1_bf579994b82da8d0ab66ee509c08fcda.jpg"/>
+    <img src="https://cdn.listasdepresente.com/products/311.jpg"/>
+    <img src="https://http2.mlstatic.com/D_NQ_NP_900906-MLU74537916107_022024-O.webp"/>
+
+    <ul>
+        {% for produto in produtos %}
+        <li>
+            <h2>{{ produto.descprod }}</h2>
+            <p>Código: {{ produto.codiprod }}</p>
+            <p>Valor: R$ {{ produto.valorprod }}</p>
+            <p>Situação: {{ produto.situprod }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'home' %}">Voltar para Home</a>
+
+</body>
+</html>
